@@ -104,7 +104,7 @@ func selecionaFruta(w http.ResponseWriter, r *http.Request) {
 	frutas, err := dao.FindById(params["id"])
 
 	if err != nil {
-		respondWithError(w, http.StatusBadRequest, "ID do produto não encontrado!")
+		respondWithError(w, http.StatusBadRequest, "ID do produto não encontrado.")
 		return
 	}
 	respondWithJson(w, http.StatusOK, frutas)
