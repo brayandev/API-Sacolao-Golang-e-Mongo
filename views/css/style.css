@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+article{
+    background-color: #cccccc;
+    height: 250px;
+}
+
+aside{
+    background-color: #cccccc;
+    height: 250px;
+}
+
+.articleFrutas{
+    margin-top: 20px;
+}
+
+.txtCadastroFruta{
+    height: 35px;
+}

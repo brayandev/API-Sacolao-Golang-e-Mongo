@@ -1,6 +1,7 @@
 package dao
 
 import (
+	"fmt"
 	"log"
 
 	"gopkg.in/mgo.v2"
@@ -34,6 +35,9 @@ func (f *FrutasDAO) Connect() {
 func (f *FrutasDAO) FindAll() ([]Fruta, error) {
 	var fruta []Fruta
 	err := db.C(COLLECTION).Find(bson.M{}).All(&fruta)
+	if err != nil {
+		fmt.Printf(err.Error())
+	}
 	return fruta, err
 }
 
@@ -49,7 +53,7 @@ func (f *FrutasDAO) Insert(fruta Fruta) error {
 }
 
 func (f *FrutasDAO) Delete(fruta Fruta) error {
-	err := db.C(COLLECTION).Remove(&fruta)
+	err := db.C(COLLECTION).Remove(bson.M{"nome": fruta.Nome})
 	return err
 }
 
